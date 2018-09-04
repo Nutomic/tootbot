@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import os.path
 import sys
 import feedparser
@@ -35,7 +37,7 @@ mastodon_api = None
 
 d = feedparser.parse('http://twitrss.me/twitter_user_to_rss/?user='+twitter)
 
-for t in reversed(d.entries):
+for t in reversed(d.entries[0:5]):
     # check if this tweet has been processed
     db.execute('SELECT * FROM tweets WHERE tweet = ? AND twitter = ?  and mastodon = ? and instance = ?',(t.id, twitter, mastodon, instance))
     last = db.fetchone()
@@ -104,3 +106,4 @@ for t in reversed(d.entries):
                 db.execute("INSERT INTO tweets VALUES ( ? , ? , ? , ? , ? )",
                 (t.id, toot["id"], twitter, mastodon, instance))
                 sql.commit()
+            break
