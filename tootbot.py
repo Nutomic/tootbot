@@ -16,7 +16,8 @@ if len(sys.argv) < 4:
     print("Usage: python3 tootbot.py twitter_account mastodon_login mastodon_passwd mastodon_instance")
     sys.exit(1)
 
-sleep_time = random.randint(0, 5 * 60)
+random.seed()
+sleep_time = random.randint(0, 10 * 60)
 time.sleep(sleep_time)
 
 # sqlite db to store processed tweets (and corresponding toots ids)
