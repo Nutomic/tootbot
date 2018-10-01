@@ -9,16 +9,10 @@ import requests
 import re
 import sqlite3
 from datetime import datetime, date, time, timedelta
-import time
-import random
 
 if len(sys.argv) < 4:
     print("Usage: python3 tootbot.py twitter_account mastodon_login mastodon_passwd mastodon_instance")
     sys.exit(1)
-
-random.seed()
-sleep_time = random.randint(0, 10 * 60)
-time.sleep(sleep_time)
 
 # sqlite db to store processed tweets (and corresponding toots ids)
 sql = sqlite3.connect('tootbot.db')
