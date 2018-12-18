@@ -87,7 +87,7 @@ for t in reversed(d.entries[0:5]):
         m = re.search(r"http[^ \xa0]*", c)
         if m != None:
             l = m.group(0)
-            r = requests.get(l, allow_redirects=False)
+            r = requests.get(l, allow_redirects=False, headers={'Accept-Encoding': 'identity'})
             if r.status_code in {301,302}:
                 c = c.replace(l,r.headers.get('Location'))
 
