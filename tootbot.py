@@ -98,7 +98,7 @@ for t in reversed(d.entries[0:5]):
         c = c.replace('\xa0…',' ')
 
         if toot_media is not None:
-            toot = mastodon_api.status_post(c, in_reply_to_id=None, media_ids=toot_media, sensitive=False, visibility='public', spoiler_text=None)
+            toot = mastodon_api.status_post(c, in_reply_to_id=None, media_ids=toot_media, sensitive=False, visibility='unlisted', spoiler_text=None)
             if "id" in toot:
                 db.execute("INSERT INTO tweets VALUES ( ? , ? , ? , ? , ? )",
                 (t.id, toot["id"], twitter, mastodon, instance))
