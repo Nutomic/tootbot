@@ -72,6 +72,10 @@ for t in reversed(d.entries[0:5]):
                 print("ERROR: First Login Failed!")
                 sys.exit(1)
 
+        if t.author != '(%s)' % twitter:
+            # skip retweets
+            continue
+
         c = t.title
         toot_media = []
         # get the pictures...
