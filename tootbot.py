@@ -72,7 +72,8 @@ for t in reversed(d.entries[0:5]):
                 print("ERROR: First Login Failed!")
                 sys.exit(1)
 
-        if t.author != '(%s)' % twitter:
+        # t.author is formatted like (@user) for some weird reason
+        if re.sub('[()@]', '', t.author) != twitter:
             # skip retweets
             continue
 
