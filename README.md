@@ -1,3 +1,5 @@
+This project has been moved to https://yerbamate.dev/nutomic/tootbot
+
 # TootBot
 
 A small python 3.x script to replicate tweets on a mastodon account.
