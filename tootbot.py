@@ -35,7 +35,7 @@ passwd = sys.argv[3]
 
 mastodon_api = None
 
-d = feedparser.parse('http://twitrss.me/twitter_user_to_rss/?user='+twitter)
+d = feedparser.parse('https://nitter.net/'+ twitter + '/rss')
 
 for t in reversed(d.entries[0:5]):
     # check if this tweet has been processed
