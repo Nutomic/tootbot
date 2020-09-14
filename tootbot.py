@@ -73,7 +73,7 @@ for t in reversed(d.entries[0:5]):
                 sys.exit(1)
 
         # t.author is formatted like (@user) for some weird reason
-        if re.sub('[()@]', '', t.author) != twitter:
+        if re.sub('[()@]', '', t.author.lower()) != twitter.lower():
             # skip retweets
             continue
 
